@@ -3,16 +3,14 @@ import { Link } from "react-router-dom";
 
 import ContainerRow from "../components/container-row";
 
-import classes from "./login-page.module.scss";
-
 const LoginPage = () => {
   return (
     <ContainerRow>
       <div className="col">
-        <h1 className={`mt-5 mb-4 text-center ${classes.title}`}>
+        <h1 className="mt-5 mb-4 text-center title-component">
           Войти в личный кабинет
         </h1>
-        <div className={`card mt-5 ${classes.wrapper}`}>
+        <div className="card mt-5 wrapper-component">
           <div className="card-body">
             <form>
               <div className="form-group">

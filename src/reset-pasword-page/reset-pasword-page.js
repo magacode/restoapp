@@ -2,16 +2,14 @@ import React from "react";
 
 import ContainerRow from "../components/container-row";
 
-import classes from "./reset-pasword-page.module.scss";
-
 const ResetPasswordPage = () => {
   return (
     <ContainerRow>
       <div className="col">
-        <h1 className={`mt-5 mb-4 text-center ${classes.title}`}>
+        <h1 className="mt-5 mb-4 text-center title-component">
           Восстановить пароль
         </h1>
-        <div className={`card mt-3 ${classes.wrapper}`}>
+        <div className="card mt-5 wrapper-component">
           <div className="card-body">
             <form>
               <div className="form-group">
