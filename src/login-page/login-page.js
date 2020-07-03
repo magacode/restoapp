@@ -3,13 +3,16 @@ import { Link } from "react-router-dom";
 
 import ContainerRow from "../components/container-row";
 
-import styles from "./login-page.module.scss";
+import classes from "./login-page.module.scss";
 
 const LoginPage = () => {
   return (
     <ContainerRow>
       <div className="col">
-        <div className={`card mt-5 ${styles.wrapper}`}>
+        <h1 className={`mt-5 mb-4 text-center ${classes.title}`}>
+          Войти в личный кабинет
+        </h1>
+        <div className={`card mt-5 ${classes.wrapper}`}>
           <div className="card-body">
             <form>
               <div className="form-group">
@@ -45,7 +48,9 @@ const LoginPage = () => {
               <button type="submit" className="btn btn-primary">
                 Войти
               </button>
-              <Link to="/reset-password">Забыли пароль?</Link>
+              <Link to="/reset-password" className="pl-2">
+                Забыли пароль?
+              </Link>
             </form>
           </div>
         </div>

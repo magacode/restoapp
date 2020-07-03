@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import Logo from "../logo";
 import Navs from "./navs";
@@ -24,6 +25,9 @@ const Navbar = () => {
           { id: 1, src: "/store/", title: "Магазины" },
         ]}
       />
+      <Link to="/login" className="btn btn-outline-success my-2 my-sm-0">
+        Вход
+      </Link>
     </nav>
   );
 };

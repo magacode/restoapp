@@ -1,8 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import classes from "./navs.module.scss";
-
 const Navs = ({ links }) => {
   return (
     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -12,7 +10,7 @@ const Navs = ({ links }) => {
             <NavLink
               to={src}
               className="nav-item nav-link"
-              activeClassName={classes.active}
+              activeClassName="active"
               key={id}
             >
               {title}
