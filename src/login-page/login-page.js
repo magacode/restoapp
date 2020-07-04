@@ -1,9 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 
 import ContainerRow from "../components/container-row";
 
-const LoginPage = () => {
+const LoginPage = ({ authenticate }) => {
+  let history = useHistory();
+  let location = useLocation();
+
+  let { from } = location.state || { from: { pathname: "/" } };
+
+  let login = () => {
+    authenticate(() => {
+      history.replace(from);
+    });
+  };
+
   return (
     <ContainerRow>
       <div className="col">
@@ -43,7 +54,7 @@ const LoginPage = () => {
                   Запомнить меня
                 </label>
               </div>
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" onClick={login} className="btn btn-primary">
                 Войти
               </button>
               <Link to="/reset-password" className="pl-2">

@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 const Navs = ({ links }) => {
   return (
@@ -18,6 +18,12 @@ const Navs = ({ links }) => {
           );
         })}
       </div>
+      <Link
+        to="/login"
+        className="btn btn-outline-success ml-auto my-2 my-md-0"
+      >
+        Вход
+      </Link>
     </div>
   );
 };
