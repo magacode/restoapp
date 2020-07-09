@@ -13,12 +13,10 @@ const Root = () => {
 
   const authenticate = (cb) => {
     setIsAuthenticated(true);
-    setTimeout(cb, 100); // fake async
   };
 
   const signout = (cb) => {
     setIsAuthenticated(false);
-    setTimeout(cb, 100);
   };
 
   return (
@@ -30,7 +28,10 @@ const Root = () => {
             <App />
           </PrivateRoute>
           <Route path="/login">
-            <LoginPage authenticate={authenticate} />
+            <LoginPage
+              isAuthenticated={isAuthenticated}
+              authenticate={authenticate}
+            />
           </Route>
           <Route path="/reset-password" component={ResetPasswordPage} />
         </Switch>

@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
 
 import ContainerRow from "../components/container-row";
 
-const LoginPage = ({ authenticate }) => {
+const LoginPage = ({ isAuthenticated, authenticate }) => {
   let history = useHistory();
   let location = useLocation();
 
   let { from } = location.state || { from: { pathname: "/" } };
 
-  let login = () => {
-    authenticate(() => {
+  useEffect(() => {
+    if (isAuthenticated) {
       history.replace(from);
-    });
+    }
+  }, [from, history, isAuthenticated]);
+
+  let login = () => {
+    authenticate();
   };
 
   return (
