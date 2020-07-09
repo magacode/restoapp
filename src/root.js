@@ -1,28 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
+import { connect } from "react-redux";
+
 
 import Navbar from "./components/navbar";
 import PrivateRoute from "./components/private-route";
 import LoginPage from "./login-page";
 import ResetPasswordPage from "./reset-pasword-page";
 import App from "./app";
+import { userIsAuthorized, userLeft } from "./store/actions";
 
-const Root = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+const Root = (props) => {
 
-  const authenticate = (cb) => {
-    setIsAuthenticated(true);
-  };
-
-  const signout = (cb) => {
-    setIsAuthenticated(false);
-  };
+  const { isAuthenticated, userIsAuthorized, userLeft } = props;
+  console.log(isAuthenticated)
 
   return (
-    <>
+    
       <Router>
-        <Navbar />
+        <Navbar userLeft={userLeft} isAuthenticated={isAuthenticated} />
         <Switch>
           <PrivateRoute exact path="/" isAuthenticated={isAuthenticated}>
             <App />
@@ -30,17 +27,24 @@ const Root = () => {
           <Route path="/login">
             <LoginPage
               isAuthenticated={isAuthenticated}
-              authenticate={authenticate}
+              authenticate={userIsAuthorized}
             />
           </Route>
           <Route path="/reset-password" component={ResetPasswordPage} />
         </Switch>
       </Router>
-    </>
   );
 };
 
-export default Root;
+const mapStateToProps = (state) => {
+  return {
+    isAuthenticated: state.isAuthenticated,
+  }
+}
 
-// <Route path="/main"></Route>
-// <Route path="/admin"></Route>
+const mapDispathToProps = {
+  userIsAuthorized, 
+  userLeft,
+}
+
+export default connect(mapStateToProps, mapDispathToProps)(Root);

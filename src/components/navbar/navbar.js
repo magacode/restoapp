@@ -3,7 +3,7 @@ import React from "react";
 import Logo from "../logo";
 import Navs from "./navs";
 
-const Navbar = () => {
+const Navbar = ({ userLeft, isAuthenticated }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
@@ -20,6 +20,8 @@ const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <Navs
+          userLeft={userLeft}
+          isAuthenticated={isAuthenticated}
           links={[
             { id: 0, src: "/restaurants/", title: "Рестораны" },
             { id: 1, src: "/store/", title: "Магазины" },

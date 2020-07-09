@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
 
-const Navs = ({ links }) => {
+const Navs = ({ userLeft, isAuthenticated, links }) => {
   return (
     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div className="navbar-nav">
@@ -21,8 +21,10 @@ const Navs = ({ links }) => {
       <Link
         to="/login"
         className="btn btn-outline-success ml-auto my-2 my-md-0"
+        onClick={userLeft}
       >
-        Вход
+        { isAuthenticated ? 'Выход' : 'Вход' }
+        
       </Link>
     </div>
   );
