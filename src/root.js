@@ -14,7 +14,7 @@ import { userIsAuthorized, userLeft } from "./store/actions";
 const Root = (props) => {
 
   const { isAuthenticated, userIsAuthorized, userLeft } = props;
-  console.log(isAuthenticated)
+ 
 
   return (
     
@@ -36,9 +36,9 @@ const Root = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ authReducer }) => {
   return {
-    isAuthenticated: state.isAuthenticated,
+    isAuthenticated: authReducer.isAuthenticated,
   }
 }
 

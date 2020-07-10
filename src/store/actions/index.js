@@ -1,21 +1,5 @@
-const userIsAuthorized = () => {
-    return {
-        type: 'USER_ISAUTHORIZED'
-    }
-}
-
-const userLeft = () => {
-    return {
-        type: 'USER_LEFT'
-    }
-}
-
-const restaurantsLoaded = (restaurants) => {
-    return {
-        type: 'RESTAURANTS_LOADED',
-        payload: restaurants,
-    }
-}
+import { userIsAuthorized, userLeft } from './user';
+import { restaurantsLoaded } from './restaurants';
 
 export {
     userIsAuthorized,
