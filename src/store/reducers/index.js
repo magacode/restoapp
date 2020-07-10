@@ -1,31 +1,9 @@
-const initialState = {
-    isAuthenticated: false,
-    restaurants: []    
-};
+import { combineReducers } from 'redux';
 
-const reducer = (state = initialState, action) => {
+import authReducer from './auth';
+import restaurantsReducer from './restaurants';
 
-    switch(action.type) {
-        case 'USER_ISAUTHORIZED':
-            return {
-                ...state,
-                isAuthenticated: true,
-            };
-
-        case 'USER_LEFT':
-            return {
-                ...state,
-                isAuthenticated: false,
-            };
-        
-        case 'RESTAURANTS_LOADED': 
-            return {
-                restaurants: action.payload
-            };
-
-        default: 
-            return state;
-    }
-};
-
-export default reducer;
+export default combineReducers({
+    authReducer,
+    restaurantsReducer,
+});
