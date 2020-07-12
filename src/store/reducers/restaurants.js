@@ -1,15 +1,38 @@
+import { FETCH_RESTAURANTS_REQUEST, FETCH_RESTAURANTS_SUCCESS, FETCH_RESTAURANTS_FAILURE } from '../constants';
+
 const restaurantsReducer = (state, action) => {
 
     if (state === undefined) {
         return {
-            restaurants: [],
+            loading: true,
+            restaurantsList: [],
+            error: false,
         }
     }
 
-    switch(action.type) {
-        case 'RESTAURANTS_LOADED':
+    console.log('6666',action.type);
+
+    switch(action.type) {        
+
+        case FETCH_RESTAURANTS_REQUEST:
             return {
-                restaurants: action.payload,
+                loading: true,
+                restaurantsList: [],
+                error: false,
+            };
+
+        case FETCH_RESTAURANTS_SUCCESS:
+            return {
+                loading: false,
+                restaurantsList: action.payload,
+                error: false,
+            };
+
+        case FETCH_RESTAURANTS_FAILURE:
+            return {
+                loading: false,
+                restaurantsList: [],
+                error: action.payload,
             };
 
         default: 

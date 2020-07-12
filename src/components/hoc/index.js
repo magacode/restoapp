@@ -1,3 +1,3 @@
-import context from "./consumer";
+import restaurantsConsumer from "./restaurants-consumer";
 
-export { context };
+export { restaurantsConsumer };
