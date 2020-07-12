@@ -1,17 +1,21 @@
-const initialState = {
-    isAuthenticated: false,
-}
+import { AUTH_USER_ISAUTHORIZED, AUTH_USER_LEFT } from '../constants';
 
-const authReducer = (state = initialState, action) => {
+const authReducer = (state, action) => {
+
+    if (state === undefined) {
+        return {
+            isAuthenticated: false,
+        }
+    }
  
     switch(action.type) {
         
-        case 'USER_ISAUTHORIZED':
+        case AUTH_USER_ISAUTHORIZED:
             return {
                 isAuthenticated: true,
             };
 
-        case 'USER_LEFT':
+        case AUTH_USER_LEFT:
             return {
                 isAuthenticated: false,
             }

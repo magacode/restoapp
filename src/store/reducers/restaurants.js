@@ -1,8 +1,11 @@
-const initialState = {
-    restaurants: [],
-};
+const restaurantsReducer = (state, action) => {
 
-const restaurantsReducer = (state = initialState, action) => {
+    if (state === undefined) {
+        return {
+            restaurants: [],
+        }
+    }
+
     switch(action.type) {
         case 'RESTAURANTS_LOADED':
             return {
