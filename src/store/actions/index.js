@@ -1,4 +1,4 @@
-import { userIsAuthorized, userLeft } from './user';
+import { userIsAuthorized, userLeft } from './auth';
 import { restaurantsLoaded } from './restaurants';
 
 export {

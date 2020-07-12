@@ -1,12 +1,14 @@
+import { AUTH_USER_ISAUTHORIZED, AUTH_USER_LEFT } from '../constants';
+
 const userIsAuthorized = () => {
     return {
-        type: 'USER_ISAUTHORIZED'
+        type: AUTH_USER_ISAUTHORIZED
     }
 }
 
 const userLeft = () => {
     return {
-        type: 'USER_LEFT'
+        type: AUTH_USER_LEFT
     }
 }
 
