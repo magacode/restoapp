@@ -1,78 +1,42 @@
 import React, { useEffect, useCallback } from 'react';
 import { connect } from 'react-redux';
 
-import { restaurantsConsumer } from '../components/hoc';
 import { getRestaurantsList } from '../store/actions';
 import CardsList from '../components/cards-list';
+import Spinner from '../components/spinner';
 
 const CardsListContainer = (props) => {
 
-    // const useRequest = (request) => {
-    //     useEffect(() => {
-    //         let cancelled = false;            
- 
-    //         request()            
-    //             .then((restaurantsList) => { !cancelled && props.fetchRestaurantsSuccess(restaurantsList)})
-    //             .catch((error) => fetchRestaurantsFailure(error))
-    
-    //         return () => cancelled = true;
-    //     }, [ request ]);
-    // }
-    
-    // const useRestaurantsList = (page) => {
-    //     const { getAllRestaurants } = props.data;       
-            
-    //     const request = useCallback(() => getAllRestaurants(page), [ page ]);
-        
-    //     return useRequest(request);
-    // }
+    const { getRestaurantsListHandler, restaurantsLoading, restaurantsPage, restaurantsList } = props;
 
-    // const { restaurantsLoading, restaurantsList } = props;
+    useEffect(() => {      
+        getRestaurantsListHandler(restaurantsPage)
+    }, [restaurantsPage])
 
-    // useRestaurantsList(1);
+    const spinner = restaurantsLoading ? <Spinner /> : null;
+    const content = !restaurantsLoading ? <CardsList cardsList={restaurantsList} /> : null;
 
-    // if (restaurantsLoading) {
-        
-    //     return <div>Loading...</div>
-    // } else {
-    //     console.log(restaurantsList.data)
-    //     return <CardsList cardsList={restaurantsList.data} />
-    // }
-
-    // console.log(restaurantsLoading);
-    useEffect(() => {
-        const { getAllRestaurants } = props.data;
-
-    props.getRestaurantsListHandler(getAllRestaurants)
-    }, [])
-
-
-
-   
-
-    if (props.restaurantsLoading) {
-        
-        return 'Loading...'
-    } else {
-        // console.log(props.restaurantsList)
-        return <CardsList cardsList={props.restaurantsList} />
-    }
-
+    return (
+        <div className="container">
+            <div className="row row-cols-1 row-cols-md-3 pt-3">
+                { spinner }
+                { content }
+            </div>
+        </div>
+    )
     
 };
 
 const mapStateToProps = (state) => {
-    console.log(state, '------+')
     return {
         restaurantsLoading: state.restaurantsReducer.loading,
+        restaurantsPage: state.restaurantsReducer.page,
         restaurantsList: state.restaurantsReducer.restaurantsList,
     }
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    getRestaurantsListHandler: (list) => dispatch(getRestaurantsList(list)) 
+    getRestaurantsListHandler: () => dispatch(getRestaurantsList()) 
 })
 
-export default restaurantsConsumer()(
-    connect(mapStateToProps, mapDispatchToProps)(CardsListContainer)
-);
+export default connect(mapStateToProps, mapDispatchToProps)(CardsListContainer)

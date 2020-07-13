@@ -7,39 +7,10 @@ export const getRestaurantsList = (getAllRestaurants) => async dispatch => {
         type: FETCH_RESTAURANTS_REQUEST,
     })  
     
-    const { data } = await getAllRestaurants()
-
-    // console.log(data)
+    const { data } = await RestaurantsApi.getAllRestaurants()
 
     dispatch({
         type: FETCH_RESTAURANTS_SUCCESS,
         payload: data,        
     })
 }
-
-
-// const fetchRestaurantsRequest = () => {
-//     return {
-//         type: FETCH_RESTAURANTS_REQUEST,
-//     }
-// }
-
-// const fetchRestaurantsSuccess = (restaurantsList) => {
-//     return {
-//         type: FETCH_RESTAURANTS_SUCCESS,
-//         payload: restaurantsList,
-//     }
-// }
-
-// const fetchRestaurantsFailure = (error) => {
-//     return {
-//         type: FETCH_RESTAURANTS_FAILURE,
-//         payload: error,
-//     }
-// }
-
-// export {
-//     fetchRestaurantsRequest,
-//     fetchRestaurantsSuccess,
-//     fetchRestaurantsFailure,
-// };
