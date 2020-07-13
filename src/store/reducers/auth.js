@@ -1,12 +1,10 @@
 import { AUTH_USER_ISAUTHORIZED, AUTH_USER_LEFT } from '../constants';
 
-const authReducer = (state, action) => {
+const initialState = {    
+    isAuthenticated: false,    
+}
 
-    if (state === undefined) {
-        return {
-            isAuthenticated: false,
-        }
-    }
+const authReducer = (state = initialState, action) => {
  
     switch(action.type) {
         

@@ -1,16 +1,12 @@
 import { FETCH_RESTAURANTS_REQUEST, FETCH_RESTAURANTS_SUCCESS, FETCH_RESTAURANTS_FAILURE } from '../constants';
 
-const restaurantsReducer = (state, action) => {
+const initialState = {
+    loading: true,
+    restaurantsList: [],
+    error: false,
+}
 
-    if (state === undefined) {
-        return {
-            loading: true,
-            restaurantsList: [],
-            error: false,
-        }
-    }
-
-    console.log('6666',action.type);
+const restaurantsReducer = (state = initialState, action) => {
 
     switch(action.type) {        
 
