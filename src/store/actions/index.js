@@ -1,10 +1,8 @@
 import { userIsAuthorized, userLeft } from './auth';
-import {  fetchRestaurantsRequest, fetchRestaurantsSuccess, fetchRestaurantsFailure, } from './restaurants';
+import { getRestaurantsList } from './restaurants';
 
 export {
     userIsAuthorized,
     userLeft,
-    fetchRestaurantsRequest,
-    fetchRestaurantsSuccess,
-    fetchRestaurantsFailure,
+    getRestaurantsList,
 }
