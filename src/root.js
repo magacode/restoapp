@@ -19,7 +19,7 @@ const Root = (props) => {
   return (
     
       <Router>
-        <Navbar userLeft={userLeft} isAuthenticated={isAuthenticated} />
+        <Navbar userLeft={userLeft} userIsAuthorized={userIsAuthorized} />
         <Switch>
           <PrivateRoute exact path="/" isAuthenticated={isAuthenticated}>
             <App />
