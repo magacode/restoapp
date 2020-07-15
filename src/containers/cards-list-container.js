@@ -31,7 +31,7 @@ const mapStateToProps = (state) => {
     return {
         restaurantsLoading: state.restaurantsReducer.loading,
         restaurantsPage: state.restaurantsReducer.page,
-        restaurantsList: state.restaurantsReducer.restaurantsList,
+        restaurantsList: state.restaurantsReducer.restaurantsData.data,
     }
 }
 
