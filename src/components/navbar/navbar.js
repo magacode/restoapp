@@ -3,7 +3,7 @@ import React from "react";
 import Logo from "../logo";
 import Navs from "./navs";
 
-const Navbar = ({ userLeft, isAuthenticated }) => {
+const Navbar = ({ userLeft, userIsAuthorized }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
@@ -21,7 +21,7 @@ const Navbar = ({ userLeft, isAuthenticated }) => {
         </button>
         <Navs
           userLeft={userLeft}
-          isAuthenticated={isAuthenticated}
+          userIsAuthorized={userIsAuthorized}
           links={[
             { id: 0, src: "/restaurants/", title: "Рестораны" },
             { id: 1, src: "/store/", title: "Магазины" },
