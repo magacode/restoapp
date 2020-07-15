@@ -2,15 +2,18 @@ import { FETCH_RESTAURANTS_REQUEST, FETCH_RESTAURANTS_SUCCESS, FETCH_RESTAURANTS
 
 import RestaurantsApi from '../../api/restaurants-api';
 
-export const getRestaurantsList = (getAllRestaurants) => async dispatch => {
+export const getRestaurantsList = () => async dispatch => {
     dispatch({
         type: FETCH_RESTAURANTS_REQUEST,
     })  
     
-    const { data } = await RestaurantsApi.getAllRestaurants()
+    const { data: {result} } = await RestaurantsApi.getRestaurantsData()
 
+
+
+console.log(result)
     dispatch({
         type: FETCH_RESTAURANTS_SUCCESS,
-        payload: data,        
+        payload: result,        
     })
 }

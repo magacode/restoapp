@@ -3,7 +3,7 @@ import { FETCH_RESTAURANTS_REQUEST, FETCH_RESTAURANTS_SUCCESS, FETCH_RESTAURANTS
 const initialState = {
     loading: true,
     page: 1,
-    restaurantsList: [],
+    restaurantsData: [],
     error: false,
 }
 
@@ -15,7 +15,7 @@ const restaurantsReducer = (state = initialState, action) => {
             return {
                 loading: true,
                 page: 1,
-                restaurantsList: [],
+                restaurantsData: [],
                 error: false,
             };
 
@@ -23,7 +23,7 @@ const restaurantsReducer = (state = initialState, action) => {
             return {
                 loading: false,
                 page: 1,
-                restaurantsList: action.payload,
+                restaurantsData: action.payload,
                 error: false,
             };
 
@@ -31,7 +31,7 @@ const restaurantsReducer = (state = initialState, action) => {
             return {
                 loading: false,
                 page: 1,
-                restaurantsList: [],
+                restaurantsData: [],
                 error: action.payload,
             };
 
