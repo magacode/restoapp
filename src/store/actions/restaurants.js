@@ -9,9 +9,6 @@ export const getRestaurantsList = () => async dispatch => {
     
     const { data: {result} } = await RestaurantsApi.getRestaurantsData()
 
-
-
-console.log(result)
     dispatch({
         type: FETCH_RESTAURANTS_SUCCESS,
         payload: result,        
