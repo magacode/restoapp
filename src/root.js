@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import { connect } from "react-redux";
-
+import PropTypes from 'prop-types';
 
 import Navbar from "./components/navbar";
 import PrivateRoute from "./components/private-route";
@@ -16,8 +16,7 @@ const Root = (props) => {
   const { isAuthenticated, userIsAuthorized, userLeft } = props;
  
 
-  return (
-    
+  return (    
       <Router>
         <Navbar userLeft={userLeft} userIsAuthorized={userIsAuthorized} />
         <Switch>
@@ -35,6 +34,12 @@ const Root = (props) => {
       </Router>
   );
 };
+
+Root.propTypes = {
+  isAuthenticated: PropTypes.bool.isRequired,
+  userIsAuthorized: PropTypes.func.isRequired,
+  userLeft: PropTypes.func.isRequired,
+}
 
 const mapStateToProps = ({ authReducer }) => {
   return {

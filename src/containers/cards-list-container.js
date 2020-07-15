@@ -32,12 +32,12 @@ const CardsListContainer = (props) => {
     
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ restaurantsReducer }) => {
     return {
-        restaurantsLoading: state.restaurantsReducer.loading,
-        restaurantsError: state.restaurantsReducer.error,
-        restaurantsPage: state.restaurantsReducer.page,
-        restaurantsList: state.restaurantsReducer.restaurantsData.data,        
+        restaurantsLoading: restaurantsReducer.loading,
+        restaurantsError: restaurantsReducer.error,
+        restaurantsPage: restaurantsReducer.page,
+        restaurantsList: restaurantsReducer.restaurantsData.data,        
     }
 }
 
