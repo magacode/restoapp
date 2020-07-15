@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 import { NavLink, Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 const Navs = ({ userLeft, isAuthenticated, userIsAuthorized, links }) => {
   return (
@@ -29,6 +30,10 @@ const Navs = ({ userLeft, isAuthenticated, userIsAuthorized, links }) => {
     </div>
   );
 };
+
+Navs.defaultProps = {
+  links: [],
+}
 
 const mapStateToProps = (state) => {
   return {
