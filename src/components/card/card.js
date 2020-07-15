@@ -6,8 +6,6 @@ import CardBody from '../card-body';
 const Card = ({ cardData }) => {
     const { restaurant_id, restaurant_src, restaurant_name, price_range_100 } = cardData;
 
-    console.log(restaurant_id, restaurant_src, restaurant_name, price_range_100 )
-
     return (
         <div className="col mb-4" key={restaurant_id}>
             <div className="card h-100">
