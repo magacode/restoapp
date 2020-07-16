@@ -28,12 +28,6 @@ const Pagination = ({ setPageHandler, currentPage, page, pages }) => {
                 <li className={`page-item ${currentPage === 1 && 'disabled'}`}>
                     <span className="page-link" onClick={getPreviousPage}>Previous</span>
                 </li>
-
-                <li className="page-item"><a className="page-link" href="#">1</a></li>
-                <li className="page-item"><a className="page-link" href="#">2</a></li>
-                <li className="page-item"><a className="page-link" href="#">3</a></li>
-
-
                 <li className={`page-item ${currentPage === pages && 'disabled'}`}>
                     <span className="page-link" onClick={getNextPage}>Next</span>
                 </li>
