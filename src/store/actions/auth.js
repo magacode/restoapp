@@ -11,9 +11,9 @@ const userIsAuthorized = () => {
 
 const userLeft = () => {
     localStorage.removeItem('isAuthenticated');
-    
+
     return {
-        type: AUTH_USER_LEFT
+        type: AUTH_USER_LEFT,
     }   
 }
 

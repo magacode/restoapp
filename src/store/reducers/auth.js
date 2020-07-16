@@ -1,21 +1,22 @@
 import { AUTH_USER_ISAUTHORIZED, AUTH_USER_LEFT } from '../constants';
 
 const initialState = {    
-    isAuthenticated: false,    
+    isAuthenticated: localStorage.getItem('isAuthenticated'),    
 }
 
 const authReducer = (state = initialState, action) => {
+    const isAuthenticated = localStorage.getItem('isAuthenticated');
  
     switch(action.type) {
         
         case AUTH_USER_ISAUTHORIZED:
             return {
-                isAuthenticated: true,
+                isAuthenticated,
             };
 
         case AUTH_USER_LEFT:
             return {
-                isAuthenticated: false,
+                isAuthenticated,
             }
 
         default: 
