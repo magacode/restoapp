@@ -13,8 +13,9 @@ import { userIsAuthorized, userLeft } from "./store/actions";
 
 const Root = (props) => {
 
-  const { isAuthenticated, userIsAuthorized, userLeft } = props;
- 
+  const { userIsAuthorized, userLeft } = props;
+
+  const isAuthenticated = localStorage.getItem('isAuthenticated'); 
 
   return (    
       <Router>
