@@ -1,12 +1,16 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faImage } from '@fortawesome/free-solid-svg-icons';
+
+import classes from './picture.module.scss';
 
 const Picture = ({ src }) => {
     return (
-        <div className="picture">
+        <div className={classes.picture}>
             {src ? (
                 <img src={src} className="img-fluid mx-auto" alt="..." />
             ) : (
-                <i className="fa fa-picture-o fa-2x" aria-hidden="true"></i>
+                <FontAwesomeIcon icon={faImage} size="3x" />
             )}
         </div>
       );
