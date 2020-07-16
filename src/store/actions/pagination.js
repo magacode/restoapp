@@ -1,8 +1,8 @@
-import { UPDATE_PAGE } from '../constants';
+import { SET_CURRENT_PAGE } from '../constants';
 
 const setPage = (page) => {
     return {
-        type: UPDATE_PAGE,
+        type: SET_CURRENT_PAGE,
         payload: page,
     }
 }

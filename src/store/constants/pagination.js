@@ -1,1 +1,1 @@
-export const UPDATE_PAGE = 'UPDATE_PAGE';
+export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';

@@ -1,4 +1,4 @@
-import { UPDATE_PAGE } from '../constants';
+import { SET_CURRENT_PAGE } from '../constants';
 
 const initialState = {
     page: 1,
@@ -8,7 +8,7 @@ const paginationReducer = (state = initialState, action) => {
 
     switch(action.type) {
 
-        case UPDATE_PAGE: 
+        case SET_CURRENT_PAGE: 
             return {
                 page: action.payload
             }
