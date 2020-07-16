@@ -2,7 +2,6 @@ import { FETCH_RESTAURANTS_REQUEST, FETCH_RESTAURANTS_SUCCESS, FETCH_RESTAURANTS
 
 const initialState = {
     loading: true,
-    page: 1,
     restaurantsData: [],
     error: false,
 }
@@ -14,7 +13,6 @@ const restaurantsReducer = (state = initialState, action) => {
         case FETCH_RESTAURANTS_REQUEST:
             return {
                 loading: true,
-                page: 1,
                 restaurantsData: [],
                 error: false,
             };
@@ -22,7 +20,6 @@ const restaurantsReducer = (state = initialState, action) => {
         case FETCH_RESTAURANTS_SUCCESS:
             return {
                 loading: false,
-                page: 1,
                 restaurantsData: action.payload,
                 error: false,
             };
@@ -30,7 +27,6 @@ const restaurantsReducer = (state = initialState, action) => {
         case FETCH_RESTAURANTS_FAILURE:
             return {
                 loading: false,
-                page: 1,
                 restaurantsData: [],
                 error: action.payload,
             };
