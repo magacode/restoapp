@@ -37,7 +37,6 @@ const Root = (props) => {
 };
 
 Root.propTypes = {
-  isAuthenticated: PropTypes.bool.isRequired,
   userIsAuthorized: PropTypes.func.isRequired,
   userLeft: PropTypes.func.isRequired,
 }

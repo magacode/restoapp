@@ -4,7 +4,8 @@ const userIsAuthorized = () => {
     localStorage.setItem('isAuthenticated', true);
 
     return {
-        type: AUTH_USER_ISAUTHORIZED
+        type: AUTH_USER_ISAUTHORIZED,
+        payload: localStorage.getItem('isAuthenticated'),
     }
 
 }
@@ -14,6 +15,7 @@ const userLeft = () => {
 
     return {
         type: AUTH_USER_LEFT,
+        payload: localStorage.getItem('isAuthenticated'),
     }   
 }
 

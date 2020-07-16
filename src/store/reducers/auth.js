@@ -5,18 +5,17 @@ const initialState = {
 }
 
 const authReducer = (state = initialState, action) => {
-    const isAuthenticated = localStorage.getItem('isAuthenticated');
  
     switch(action.type) {
         
         case AUTH_USER_ISAUTHORIZED:
             return {
-                isAuthenticated,
+                isAuthenticated: action.payload,
             };
 
         case AUTH_USER_LEFT:
             return {
-                isAuthenticated,
+                isAuthenticated: action.payload,
             }
 
         default: 
